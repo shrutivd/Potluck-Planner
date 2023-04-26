@@ -4,7 +4,7 @@ import {test, teardown} from "tap";
 import {faker} from "@faker-js/faker";
 import app from '../src/app.js';
 
-teardown( () => app.close());
+teardown( () => app.close());  //final clean up
 
 test("Request the /hello route", async ()=>{
 	const response = await app.inject({
@@ -30,7 +30,7 @@ test("Creating a new user", async ()=>{
 	const payload ={
 		name: "testname",
 		email: faker.internet.email(),
-		pet_type: "Dog"
+		//pet_type: "Dog"
 	};
 	
 	const response = await app.inject({
@@ -42,6 +42,6 @@ test("Creating a new user", async ()=>{
 	response.payload.should.not.equal(payload);
 	const resPayload = response.json();
 	resPayload.email.should.equal(payload.email);
-	resPayload.pet_type.should.equal("Dog");
+	//resPayload.pet_type.should.equal("Dog");
 	
 });

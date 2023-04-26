@@ -28,7 +28,7 @@ async function DoggrRoutes(app:FastifyInstance, _options = {}) {
 			const newUser = await req.em.create(User, {
 				name,
 				email,
-				pet_type
+				//pet_type
 			});
 			
 			await req.em.flush();
@@ -43,5 +43,5 @@ async function DoggrRoutes(app:FastifyInstance, _options = {}) {
 	});
 }
 	
-	export default DoggrRoutes;
+export default DoggrRoutes;
 	
