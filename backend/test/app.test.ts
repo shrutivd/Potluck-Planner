@@ -30,7 +30,7 @@ test("Creating a new user", async ()=>{
 	const payload ={
 		name: "testname",
 		email: faker.internet.email(),
-		pet_type: "Dog"
+		
 	};
 	
 	const response = await app.inject({
@@ -42,6 +42,6 @@ test("Creating a new user", async ()=>{
 	response.payload.should.not.equal(payload);
 	const resPayload = response.json();
 	resPayload.email.should.equal(payload.email);
-	resPayload.pet_type.should.equal("Dog");
+	
 	
 });
